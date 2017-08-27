@@ -6,7 +6,6 @@ const autoprefixer = require('autoprefixer');
 const csswring = require('csswring');
 const browserSync = require('browser-sync').create();
 const del = require('del');
-const opn = require('opn');
 const basePaths = {
   src: './src',
   dist: './',
@@ -23,7 +22,9 @@ const paths = {
     find: `${basePaths.src}/styles/*.scss`,
     dist: `${basePaths.dist}/css`,
   },
-  browserUrl: 'http://192.0.0.1:8080',
+  html: {
+    watch: `${basePaths.dist}index.html`,
+  },
 };
 const config = {
   plumber: {
@@ -48,12 +49,6 @@ const config = {
   autoprefixer: {
     browsers: 'last 2 version',
   },
-  browserSync: {
-    open: false,
-    port: 9011,
-    server: { baseDir: basePaths.dist },
-    files: `${basePaths.dist}/**/*`,
-  },
 };
 gulp.task('clean', () => del([`${basePaths.dist}/js/**/*`, `${basePaths.dist}/css/**/*`]));
 
@@ -73,6 +68,9 @@ gulp.task('scripts', ['eslint'], () =>
     .pipe(p.uglify(config.uglify))
     .pipe(gulp.dest(paths.scripts.dist))
 );
+gulp.task('scriptsWatch', ['scripts'], () =>
+  browserSync.reload()
+);
 gulp.task('styles', () =>
   gulp
     .src(paths.styles.find)
@@ -83,30 +81,19 @@ gulp.task('styles', () =>
       csswring,
     ]))
     .pipe(gulp.dest(paths.styles.dist))
+    .pipe(browserSync.stream())
 );
-gulp.task('watch', () => {
-  p.watch(paths.scripts.watch, () => gulp.start(gulpsync.sync([
-    'scripts',
-  ])));
-  p.watch(paths.styles.watch, () => gulp.start('styles'));
-});
-gulp.task('browser-sync', () =>
-  browserSync.init(config.browserSync,
-  (err) => {
-    if (!err) {
-      opn(paths.browserUrl);
-    }
-  })
-);
-gulp.task('dev-watch', gulpsync.sync([
-  'clean',
-  ['scripts', 'styles'],
-  ['watch', 'browser-sync'],
-]));
+gulp.task('serve', ['styles'], () => {
+  browserSync.init({
+    server: './',
+  });
 
+  gulp.watch(paths.scripts.watch, ['scriptsWatch']);
+  gulp.watch(paths.styles.watch, ['styles']);
+  gulp.watch(paths.html.watch).on('change', browserSync.reload);
+});
 gulp.task('prod', gulpsync.sync([
   'clean',
   ['styles', 'scripts'],
 ]));
-
 gulp.task('default', ['prod']);
