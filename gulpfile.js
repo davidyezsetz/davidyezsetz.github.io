@@ -9,6 +9,7 @@ const del = require('del');
 const basePaths = {
   src: './src',
   dist: './',
+  node_modules: './node_modules',
 };
 const paths = {
   scripts: {
@@ -16,6 +17,7 @@ const paths = {
     watch: `${basePaths.src}/scripts/**/*.js`,
     find: `${basePaths.src}/scripts/**/[^_]*.js`,
     dist: `${basePaths.dist}/js`,
+    vendor: `${basePaths.node_modules}/chart.js/dist/Chart.js`,
   },
   styles: {
     watch: `${basePaths.src}/styles/**/*.scss`,
@@ -61,7 +63,7 @@ gulp.task('eslint', () =>
 );
 gulp.task('scripts', ['eslint'], () =>
   gulp
-    .src(paths.scripts.find)
+    .src([paths.scripts.vendor, paths.scripts.find])
     .pipe(p.plumber(config.plumber))
     .pipe(p.babel(config.babel))
     .pipe(p.concat('bundle.js'))

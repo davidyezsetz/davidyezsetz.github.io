@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Private Website",
   "main": "index.html",
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "2.6.0"
+  },
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
