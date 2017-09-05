@@ -35,6 +35,8 @@
     "gulp-watch": "4.3.10"
   },
   "scripts": {
+    "build": "gulp prod",
+    "start": "gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
