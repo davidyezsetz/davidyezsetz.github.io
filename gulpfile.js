@@ -20,6 +20,7 @@ const paths = {
     vendor: `${basePaths.node_modules}/chart.js/dist/Chart.js`,
   },
   styles: {
+    src: `${basePaths.src}/styles/`,
     watch: `${basePaths.src}/styles/**/*.scss`,
     find: `${basePaths.src}/styles/*.scss`,
     dist: `${basePaths.dist}/css`,
@@ -77,11 +78,15 @@ gulp.task('styles', () =>
   gulp
     .src(paths.styles.find)
     .pipe(p.plumber(config.plumber))
-    .pipe(p.sass())
+    .pipe(p.sourcemaps.init())
+    .pipe(p.sass({
+      includePaths: paths.styles.src,
+    }))
     .pipe(p.postcss([
       autoprefixer(config.autoprefixer),
       csswring,
     ]))
+    .pipe(p.sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dist))
     .pipe(browserSync.stream())
 );
