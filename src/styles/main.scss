@@ -1,6 +1,7 @@
-$blue: #00a3d2; 
-$light-grey:#e4e4e4;
-$dark-grey: #7c7c7c;
+@import "./vars";
+
+@import "./button";
+@import "./tech-chart";
 
 body {
   background: #fff;
