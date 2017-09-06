@@ -1,9 +1,11 @@
+@import "../../node_modules/normalize.css/normalize";
 @import "./vars";
 
 @import "./layout";
 @import "./typography";
 
 @import "./button";
+@import "./main-nav";
 @import "./tech-chart";
 
 body {

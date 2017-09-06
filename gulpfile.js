@@ -80,7 +80,7 @@ gulp.task('styles', () =>
     .pipe(p.plumber(config.plumber))
     .pipe(p.sourcemaps.init())
     .pipe(p.sass({
-      includePaths: paths.styles.src,
+      includePaths: ['paths.styles.src', 'basePaths.node_modules'],
     }))
     .pipe(p.postcss([
       autoprefixer(config.autoprefixer),
