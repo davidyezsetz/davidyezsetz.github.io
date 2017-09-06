@@ -1,0 +1,33 @@
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  
+  &__wrapper {
+    flex: 1;
+  }
+
+  &__entry {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+  }
+}
+
+.social-nav {
+  display: flex;
+
+  &__entry {
+    margin-right: 20px;
+    line-height: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,13 +1,11 @@
-@import "../../node_modules/normalize.css/normalize";
 @import "./vars";
+
+@import "../../node_modules/normalize.css/normalize";
+@import "./general";
 
 @import "./layout";
 @import "./typography";
 
 @import "./button";
-@import "./main-nav";
-@import "./tech-chart";
-
-body {
-  background: #fff;
-}
+@import "./nav";
+@import "./sections";

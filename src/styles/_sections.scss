@@ -17,3 +17,20 @@
     padding: 0 50px;
   }
 }
+
+.work-xp {
+  max-width: 500px;
+
+  &__entry {
+    padding-left: 20px;
+    line-height: 40px;
+
+    &:nth-child(odd) {
+      background: $light-grey;
+
+      a:hover {
+        text-shadow: 1px 1px 1px $white; 
+      }
+    }
+  }
+}
