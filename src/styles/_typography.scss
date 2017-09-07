@@ -1,15 +1,21 @@
+body {
+  color: $dark-grey;
+  font-family: $font-family;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  color: $blue;
+  margin: 0 0 $margin-big;
+  color: $primary;
   font-weight: 700;
 }
 
-p , ul {
-  color: $dark-grey;
+p {
+  margin: 0 0 $margin-base;
+  max-width: 800px;
 }
 
 a {
-  color: $blue;
+  color: $primary;
   text-decoration: none;
   transition: all .2s ease-in-out;
 
