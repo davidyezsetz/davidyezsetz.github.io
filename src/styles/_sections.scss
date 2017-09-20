@@ -11,24 +11,53 @@
   }
 }
 
+/* Tech chart */
+$button-min-height: 36px;
+
 .tech-chart {
   display: flex;
-  justify-content: center;
-  margin: auto;
-  max-width: 1024px;
+  flex-wrap: wrap;
 
   &__nav {
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    flex: 1;
+
+    @media all and (max-width: $breakpoint-s) {
+      margin: 0 auto $margin-big;
+      height: $button-min-height;
+      overflow: hidden;
+      transition: height .2s ease-in-out;
+
+      &--active {
+        height: ($button-min-height + $margin-base) * 7;
+      }
+    }
   }
 
   &__chart {
-    flex: 2;
-    padding: 0 $margin-huge;
+    flex-grow: 1;
+    min-width: 375px;
+    max-width: 550px;
+    @media all and (min-width: $breakpoint-s + 1px) {
+      margin-left: $margin-huge;
+    }
+  }
+
+  .button {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 10%;
+    min-height: $button-min-height;
+    max-height: 50px;
+    order: 2;
+
+    &--active {
+      order: 1;
+    }
   }
 }
+
+/* Work XP */
 
 .work-xp {
   max-width: 500px;

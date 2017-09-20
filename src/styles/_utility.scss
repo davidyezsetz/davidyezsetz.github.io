@@ -1,0 +1,11 @@
+.hidden-on-s {
+  @media all and (max-width: $breakpoint-s) {
+    display: none;
+  }
+}
+
+.visible-on-s {
+  @media all and (min-width: ($breakpoint-s + 1)) {
+    display: none;
+  }
+}
