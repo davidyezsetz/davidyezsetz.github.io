@@ -1,13 +1,22 @@
 .main-nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   
   &__wrapper {
     flex: 1;
   }
 
   &__entry {
-    margin-right: $margin-base;
+    @media all and (min-width: $breakpoint-s +1) {
+      margin-right: $margin-base;
+    }
+
+    @media all and (max-width: $breakpoint-s) {
+      margin-bottom: $margin-base;
+      width: 100%;
+      text-align: center;
+    }
 
     &:last-child {
       margin-right: 0;

@@ -1,9 +1,18 @@
 .intro {
   display: flex;
 
+  @media all and (max-width: $breakpoint-s) {
+    flex-wrap: wrap;
+  }
+
   &__visual {
     flex: 1;
     margin-right: $margin-big;
+    
+    @media all and (max-width: $breakpoint-s) {
+      flex: auto;
+      margin-bottom: $margin-base;
+    }
   }
 
   &__copy {
