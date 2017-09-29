@@ -2,17 +2,17 @@
 
 // Define chart colours
 const backgroundColor = [
-  'rgba(0,163,210, .6)',
-  'rgba(125,191,196, .6)',
-  'rgba(35,61,99, .6)',
-  'rgba(130,127,132, .6)',
+  'rgba(43,98,35, .6)',
+  'rgba(86, 119, 84, .6)',
+  'rgba(150, 179, 160, .6)',
+  'rgba(69, 90, 62, .6)',
 ];
 
 const borderColor = [
-  'rgba(0,163,210, 1)',
-  'rgba(125,191,196, 1)',
-  'rgba(35,61,99, 1)',
-  'rgba(130,127,132, 1)',
+  'rgba(43,98,35, 1)',
+  'rgba(86, 119, 84, 1)',
+  'rgba(150, 179, 160, 1)',
+  'rgba(69, 90, 62, 1)',
 ];
 
 // definde chart data
@@ -143,11 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  button2011.addEventListener('click', (e) => buttonHandler(chart2011, e));
-  button2012.addEventListener('click', (e) => buttonHandler(chart2012, e));
-  button2013.addEventListener('click', (e) => buttonHandler(chart2013, e));
-  button2014.addEventListener('click', (e) => buttonHandler(chart2014, e));
-  button2015.addEventListener('click', (e) => buttonHandler(chart2015, e));
-  button2016.addEventListener('click', (e) => buttonHandler(chart2016, e));
-  button2017.addEventListener('click', (e) => buttonHandler(chart2017, e));
+  button2011.addEventListener('click', e => buttonHandler(chart2011, e));
+  button2012.addEventListener('click', e => buttonHandler(chart2012, e));
+  button2013.addEventListener('click', e => buttonHandler(chart2013, e));
+  button2014.addEventListener('click', e => buttonHandler(chart2014, e));
+  button2015.addEventListener('click', e => buttonHandler(chart2015, e));
+  button2016.addEventListener('click', e => buttonHandler(chart2016, e));
+  button2017.addEventListener('click', e => buttonHandler(chart2017, e));
 });
