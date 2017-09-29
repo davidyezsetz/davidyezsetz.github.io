@@ -20,13 +20,13 @@
   border-top: 1px solid darken($light-grey, 10%);
   background: $light-grey;
 
-  @media all and (max-width: $breakpoint-s) {
+  @media all and (max-width: $max-width) {
     padding: 0 $margin-base;
   }
 }
 
 .site-wrapper {
-  max-width: 1024px;
+  max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
 }
