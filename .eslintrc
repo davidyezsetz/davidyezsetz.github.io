@@ -1,5 +1,11 @@
 {
   "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "Chart": true
+  },
   "rules": {
   }
 }

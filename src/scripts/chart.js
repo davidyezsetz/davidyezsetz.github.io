@@ -1,5 +1,3 @@
-/*  eslint-disable no-undef */
-
 // Define chart colours
 const backgroundColor = [
   'rgba(43,98,35, .6)',
@@ -16,7 +14,6 @@ const borderColor = [
 ];
 
 // definde chart data
-
 const chart2011 = {
   labels: ['CSS', 'JavaScript', 'PHP: WordPress, Symfony', 'Phonegap'],
   datasets: [{
