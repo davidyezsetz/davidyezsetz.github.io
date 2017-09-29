@@ -9,9 +9,15 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+h1 {
+  font-size: 1.7em;
+}
+
 p {
   margin: 0 0 $margin-base;
- 
+  font-size: 1em;
+  line-height: 1.5;
+   
   @media all and (min-width: $breakpoint-s +1) {
     max-width: 80%;
   }
