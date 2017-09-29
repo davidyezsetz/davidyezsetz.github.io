@@ -19,6 +19,9 @@
 }
 
 .site-footer {
+  position: relative;
+  left: -$margin-base;
+  width: calc(100% + (#{$margin-base} * 2));
   border-top: 1px solid darken($light-grey, 10%);
   background: $light-grey;
 }
