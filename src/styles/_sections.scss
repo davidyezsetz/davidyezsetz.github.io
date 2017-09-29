@@ -8,15 +8,20 @@
   &__visual {
     flex: 1;
     margin-right: $margin-big;
+    max-width: 200px;
     
     @media all and (max-width: $breakpoint-s) {
       flex: auto;
-      margin-bottom: $margin-base;
+      margin: 0 auto $margin-base;
     }
   }
 
   &__copy {
     flex: 2;
+    
+    @media all and (max-width: $breakpoint-s) {
+      flex: auto;
+    }
   }
 }
 
