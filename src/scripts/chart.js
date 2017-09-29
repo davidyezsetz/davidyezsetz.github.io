@@ -116,6 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
       cutoutPercentage: 50,
     },
     data: chart2017,
+    plugins: [{
+      afterInit: () => {
+        const iframe = document.querySelector('.chartjs-hidden-iframe');
+        iframe.setAttribute('title', 'helper iframe');
+        iframe.setAttribute('aria-hidden', 'true');
+      },
+    }],
   });
 
   const updateChart = (data) => {
