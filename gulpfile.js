@@ -1,11 +1,12 @@
-/*  eslint-disable no-console, no-param-reassign*/
+/*  eslint-disable no-console, no-param-reassign */
 const gulp = require('gulp');
 const p = require('gulp-load-plugins')();
-const gulpsync = p.sync(gulp);
 const autoprefixer = require('autoprefixer');
 const csswring = require('csswring');
 const browserSync = require('browser-sync').create();
 const del = require('del');
+
+const gulpsync = p.sync(gulp);
 const basePaths = {
   src: './src',
   dist: './',
@@ -60,7 +61,7 @@ gulp.task('eslint', () =>
     .src(paths.scripts.find)
     .pipe(p.eslint({}))
     .pipe(p.eslint.format())
-    .pipe(p.eslint.failAfterError())
+    .pipe(p.eslint.failAfterError()),
 );
 gulp.task('scripts', ['eslint'], () =>
   gulp
@@ -69,10 +70,10 @@ gulp.task('scripts', ['eslint'], () =>
     .pipe(p.babel(config.babel))
     .pipe(p.concat('bundle.js'))
     .pipe(p.uglify(config.uglify))
-    .pipe(gulp.dest(paths.scripts.dist))
+    .pipe(gulp.dest(paths.scripts.dist)),
 );
 gulp.task('scriptsWatch', ['scripts'], () =>
-  browserSync.reload()
+  browserSync.reload(),
 );
 gulp.task('styles', () =>
   gulp
@@ -88,7 +89,7 @@ gulp.task('styles', () =>
     ]))
     .pipe(p.sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dist))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream()),
 );
 gulp.task('serve', ['styles'], () => {
   browserSync.init({
