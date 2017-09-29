@@ -91,6 +91,19 @@ gulp.task('styles', () =>
     .pipe(gulp.dest(paths.styles.dist))
     .pipe(browserSync.stream()),
 );
+gulp.task('styles-prod', () =>
+  gulp
+    .src(paths.styles.find)
+    .pipe(p.plumber(config.plumber))
+    .pipe(p.sass({
+      includePaths: ['paths.styles.src', 'basePaths.node_modules'],
+    }))
+    .pipe(p.postcss([
+      autoprefixer(config.autoprefixer),
+      csswring,
+    ]))
+    .pipe(gulp.dest(paths.styles.dist)),
+);
 gulp.task('serve', ['styles'], () => {
   browserSync.init({
     server: './',
@@ -102,6 +115,6 @@ gulp.task('serve', ['styles'], () => {
 });
 gulp.task('prod', gulpsync.sync([
   'clean',
-  ['styles', 'scripts'],
+  ['styles-prod', 'scripts'],
 ]));
 gulp.task('default', ['prod']);
