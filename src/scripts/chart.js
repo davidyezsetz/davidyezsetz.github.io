@@ -95,6 +95,18 @@ const chart2017 = {
   }],
 };
 
+const chart2018 = {
+  /*  eslint-disable no-script-url */
+  labels: ['CSS', 'JavaScript: Angular, React, NodeJS'],
+  datasets: [{
+    label: '# of Votes',
+    data: [40, 60],
+    backgroundColor,
+    borderColor,
+    borderWidth: 1,
+  }],
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const ctx = document.getElementById('js_techChart');
   const nav = document.getElementById('js_techChartNav');
@@ -105,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const button2015 = document.getElementById('js_techChart2015');
   const button2016 = document.getElementById('js_techChart2016');
   const button2017 = document.getElementById('js_techChart2017');
+  const button2018 = document.getElementById('js_techChart2018');
   const isBreakpointS = document.body.clientWidth <= 650;
   const buttonActiveClass = 'button--active';
   const navActiveClass = 'tech-chart__nav--active';
@@ -115,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'animation.animateRotate': true,
       cutoutPercentage: 50,
     },
-    data: chart2017,
+    data: chart2018,
     plugins: [{
       afterInit: () => {
         const iframe = document.querySelector('.chartjs-hidden-iframe');
@@ -154,4 +167,5 @@ document.addEventListener('DOMContentLoaded', () => {
   button2015.addEventListener('click', e => buttonHandler(chart2015, e));
   button2016.addEventListener('click', e => buttonHandler(chart2016, e));
   button2017.addEventListener('click', e => buttonHandler(chart2017, e));
+  button2018.addEventListener('click', e => buttonHandler(chart2018, e));
 });
