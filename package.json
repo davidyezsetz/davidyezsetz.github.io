@@ -4,10 +4,11 @@
   "description": "Private Website",
   "main": "index.html",
   "dependencies": {
+    "http-server": "^0.12.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
+    "serve": "http-server"
   },
   "repository": {
     "type": "git",
